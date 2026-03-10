@@ -2,7 +2,8 @@ from twikit import Client
 from transformers import pipeline
 import numpy as np
 import matplotlib.pyplot as plt
-
+from dotenv import load_dotenv
+import os
 # Initialize BERT 
 sentiment_analysis_pipeline = pipeline("sentiment-analysis")
 
@@ -10,8 +11,8 @@ client = Client('en-US')
 
 # Twitter info
 client.login(
-    auth_info_1='MalikFreem4293',
-    password='K!ngjames1996',
+    auth_info_1=os.getenv('TWITTER_USERNAME'),
+    password=os.getenv('TWITTER_PASSWORD'),
 )
 
 client.save_cookies('cookies.json')
